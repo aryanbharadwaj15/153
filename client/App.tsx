@@ -28,6 +28,7 @@ import ProjectCreatePage from "@/pages/projects/Create";
 import AdarshGramPage from "@/pages/AdarshGram";
 import GIAPage from "@/pages/GIA";
 import HostelsPage from "@/pages/Hostels";
+import BuilderDashboard from "@/components/BuilderDashboard";
 
 const queryClient = new QueryClient();
 
