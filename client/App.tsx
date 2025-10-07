@@ -81,6 +81,9 @@ const App = () => (
               <Route path="/reports" element={<Placeholder title="Report Generation" />} />
               <Route path="/analytics" element={<Placeholder title="Performance Analytics" />} />
 
+              {/* Builder.io visual editor/dashboard integration */}
+              <Route path="/builder" element={<BuilderDashboard />} />
+
               {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Route>
