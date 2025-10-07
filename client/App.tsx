@@ -54,9 +54,9 @@ const App = () => (
 
               {/* Dashboards */}
               <Route path="/dashboard/central" element={<CentralDashboard />} />
-              <Route path="/dashboard/state" element={<Placeholder title="State/UT Dashboard" />} />
-              <Route path="/dashboard/ia" element={<Placeholder title="Implementing Agency (IA) Portal" />} />
-              <Route path="/dashboard/ea" element={<Placeholder title="Executing Agency (EA) Interface" />} />
+              <Route path="/dashboard/state" element={<StateDashboard />} />
+              <Route path="/dashboard/ia" element={<IADashboard />} />
+              <Route path="/dashboard/ea" element={<EADashboard />} />
               <Route path="/dashboard/monitor" element={<Placeholder title="Monitoring Officer Dashboard" />} />
 
               {/* Agencies */}
@@ -81,6 +81,7 @@ const App = () => (
 
               {/* Monitoring & Reports */}
               <Route path="/monitoring/real-time" element={<RealTimeTracking />} />
+              <Route path="/monitoring/submit" element={<SubmitGeo />} />
               <Route path="/monitoring/alerts" element={<AlertsPage />} />
               <Route path="/reports" element={<Placeholder title="Report Generation" />} />
               <Route path="/analytics" element={<Placeholder title="Performance Analytics" />} />
