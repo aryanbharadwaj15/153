@@ -57,7 +57,10 @@ const App = () => (
               <Route path="/dashboard/state" element={<StateDashboard />} />
               <Route path="/dashboard/ia" element={<IADashboard />} />
               <Route path="/dashboard/ea" element={<EADashboard />} />
-              <Route path="/dashboard/monitor" element={<Placeholder title="Monitoring Officer Dashboard" />} />
+              <Route
+                path="/dashboard/monitor"
+                element={<Placeholder title="Monitoring Officer Dashboard" />}
+              />
 
               {/* Agencies */}
               <Route path="/agencies/ia" element={<IAPage />} />
@@ -66,7 +69,10 @@ const App = () => (
               {/* Projects */}
               <Route path="/projects" element={<ProjectsPage />} />
               <Route path="/projects/create" element={<ProjectCreatePage />} />
-              <Route path="/projects/:id" element={<Placeholder title="Project Details" />} />
+              <Route
+                path="/projects/:id"
+                element={<Placeholder title="Project Details" />}
+              />
 
               {/* Components */}
               <Route path="/adarsh-gram" element={<AdarshGramPage />} />
@@ -80,11 +86,20 @@ const App = () => (
               <Route path="/finance/uc" element={<UCPage />} />
 
               {/* Monitoring & Reports */}
-              <Route path="/monitoring/real-time" element={<RealTimeTracking />} />
+              <Route
+                path="/monitoring/real-time"
+                element={<RealTimeTracking />}
+              />
               <Route path="/monitoring/submit" element={<SubmitGeo />} />
               <Route path="/monitoring/alerts" element={<AlertsPage />} />
-              <Route path="/reports" element={<Placeholder title="Report Generation" />} />
-              <Route path="/analytics" element={<Placeholder title="Performance Analytics" />} />
+              <Route
+                path="/reports"
+                element={<Placeholder title="Report Generation" />}
+              />
+              <Route
+                path="/analytics"
+                element={<Placeholder title="Performance Analytics" />}
+              />
 
               {/* Builder.io visual editor/dashboard integration */}
               <Route path="/builder" element={<BuilderDashboard />} />
