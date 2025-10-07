@@ -25,6 +25,9 @@ import IAPage from "@/pages/agencies/IA";
 import EAPage from "@/pages/agencies/EA";
 import ProjectsPage from "@/pages/projects/Projects";
 import ProjectCreatePage from "@/pages/projects/Create";
+import AdarshGramPage from "@/pages/AdarshGram";
+import GIAPage from "@/pages/GIA";
+import HostelsPage from "@/pages/Hostels";
 
 const queryClient = new QueryClient();
 
