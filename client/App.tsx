@@ -23,6 +23,7 @@ import FundFlowPage from "@/pages/finance/FundFlow";
 import BudgetsPage from "@/pages/finance/Budgets";
 import UCPage from "@/pages/finance/UC";
 import RealTimeTracking from "@/pages/monitoring/RealTime";
+import SubmitGeo from "@/pages/monitoring/SubmitGeo";
 import AlertsPage from "@/pages/monitoring/Alerts";
 import IAPage from "@/pages/agencies/IA";
 import EAPage from "@/pages/agencies/EA";
