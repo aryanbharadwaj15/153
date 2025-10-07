@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function RealTimeTracking() {
   return (
-    <RoleGuard allowed={["central", "state", "monitor", "ia", "ea"]}>
+    <RoleGuard allowed={["central", "state", "ia", "ea"]}>
       <Content />
     </RoleGuard>
   );
