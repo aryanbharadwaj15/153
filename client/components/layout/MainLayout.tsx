@@ -39,6 +39,7 @@ export default function MainLayout() {
             <NavItem to="/monitoring/real-time">Monitoring</NavItem>
             <NavItem to="/reports">Reports</NavItem>
             <NavItem to="/analytics">Analytics</NavItem>
+            <NavItem to="/builder">Builder</NavItem>
           </nav>
           <div className="flex items-center gap-2">
             {user ? (
