@@ -64,9 +64,9 @@ const App = () => (
               <Route path="/projects/:id" element={<Placeholder title="Project Details" />} />
 
               {/* Components */}
-              <Route path="/adarsh-gram" element={<Placeholder title="Adarsh Gram" />} />
-              <Route path="/gia" element={<Placeholder title="Grant-in-Aid (GIA)" />} />
-              <Route path="/hostels" element={<Placeholder title="Hostels" />} />
+              <Route path="/adarsh-gram" element={<AdarshGramPage />} />
+              <Route path="/gia" element={<GIAPage />} />
+              <Route path="/hostels" element={<HostelsPage />} />
 
               {/* Finance */}
               <Route path="/finance/dashboard" element={<FinanceDashboard />} />
