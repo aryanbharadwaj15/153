@@ -86,3 +86,7 @@ export async function addBudget(budget: Budget) {
 export async function addAlert(alert: Alert) {
   await addDoc(col.alerts, alert as any);
 }
+
+export async function addGeoTracking(track: GeoTracking) {
+  await addDoc(col.geo_tracking, track as any);
+}
