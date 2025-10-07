@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function ProjectsPage() {
   return (
-    <RoleGuard allowed={["central", "state", "ia", "monitor"]}>
+    <RoleGuard allowed={["central", "state", "ia", "ea"]}>
       <Content />
     </RoleGuard>
   );
