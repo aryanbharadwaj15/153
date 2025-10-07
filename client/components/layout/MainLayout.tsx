@@ -22,34 +22,86 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export default function MainLayout() {
-  const { user, logout } = useAuth();
+  const { user, userDoc, loading, logout } = useAuth();
+  const role = userDoc?.role;
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-[hsl(var(--muted))]">
       <header className="sticky top-0 z-40 border-b bg-white/70 dark:bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-white/50">
         <div className="container flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-md bg-gradient-to-tr from-primary to-[hsl(var(--sidebar-ring))] shadow" />
-            <span className="text-base font-extrabold tracking-tight">PM-AJAY IDPMS</span>
+            <span className="text-base font-extrabold tracking-tight">
+              PM-AJAY IDPMS
+            </span>
           </Link>
           <nav className="hidden md:flex items-center gap-1">
-            <NavItem to="/dashboard/central">Dashboard</NavItem>
-            <NavItem to="/projects">Projects</NavItem>
-            <NavItem to="/agencies/ia">Agencies</NavItem>
-            <NavItem to="/finance/dashboard">Finance</NavItem>
-            <NavItem to="/monitoring/real-time">Monitoring</NavItem>
-            <NavItem to="/reports">Reports</NavItem>
-            <NavItem to="/analytics">Analytics</NavItem>
+            {!user && (
+              <>
+                <NavItem to="/">Home</NavItem>
+              </>
+            )}
+
+            {user && role === "central" && (
+              <>
+                <NavItem to="/dashboard/central">Dashboard</NavItem>
+                <NavItem to="/projects">Projects</NavItem>
+                <NavItem to="/agencies/ia">Agencies</NavItem>
+                <NavItem to="/finance/dashboard">Finance</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+                <NavItem to="/reports">Reports</NavItem>
+                <NavItem to="/analytics">Analytics</NavItem>
+                <NavItem to="/builder">Builder</NavItem>
+              </>
+            )}
+
+            {user && role === "state" && (
+              <>
+                <NavItem to="/dashboard/state">Dashboard</NavItem>
+                <NavItem to="/projects">Projects</NavItem>
+                <NavItem to="/agencies/ia">Agencies</NavItem>
+                <NavItem to="/finance/dashboard">Finance</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+                <NavItem to="/reports">Reports</NavItem>
+              </>
+            )}
+
+            {user && role === "ia" && (
+              <>
+                <NavItem to="/dashboard/ia">Dashboard</NavItem>
+                <NavItem to="/projects">My Projects</NavItem>
+                <NavItem to="/finance/uc">Utilization Certificates</NavItem>
+                <NavItem to="/finance/fund-flow">Fund Flow</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+              </>
+            )}
+
+            {user && role === "ea" && (
+              <>
+                <NavItem to="/dashboard/ea">Dashboard</NavItem>
+                <NavItem to="/projects">My Projects</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+              </>
+            )}
           </nav>
+
           <div className="flex items-center gap-2">
             {user ? (
               <>
-                <span className="hidden sm:block text-sm text-foreground/70">{user.displayName || user.email}</span>
-                <Button variant="outline" size="sm" onClick={logout}>Sign out</Button>
+                <span className="hidden sm:block text-sm text-foreground/70">
+                  {user.displayName || user.email}
+                </span>
+                <Button variant="outline" size="sm" onClick={logout}>
+                  Sign out
+                </Button>
               </>
             ) : (
               <div className="flex items-center gap-2">
-                <Button asChild variant="ghost" size="sm"><Link to="/login">Log in</Link></Button>
-                <Button asChild size="sm"><Link to="/signup">Sign up</Link></Button>
+                <Button asChild variant="ghost" size="sm">
+                  <Link to="/login">Log in</Link>
+                </Button>
+                <Button asChild size="sm">
+                  <Link to="/signup">Sign up</Link>
+                </Button>
               </div>
             )}
           </div>
@@ -62,9 +114,15 @@ export default function MainLayout() {
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} PM-AJAY IDPMS</p>
           <div className="flex items-center gap-4">
-            <Link to="/adarsh-gram" className="hover:underline">Adarsh Gram</Link>
-            <Link to="/gia" className="hover:underline">GIA</Link>
-            <Link to="/hostels" className="hover:underline">Hostels</Link>
+            <Link to="/adarsh-gram" className="hover:underline">
+              Adarsh Gram
+            </Link>
+            <Link to="/gia" className="hover:underline">
+              GIA
+            </Link>
+            <Link to="/hostels" className="hover:underline">
+              Hostels
+            </Link>
           </div>
         </div>
       </footer>
