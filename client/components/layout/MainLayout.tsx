@@ -22,7 +22,8 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
 }
 
 export default function MainLayout() {
-  const { user, logout } = useAuth();
+  const { user, userDoc, loading, logout } = useAuth();
+  const role = userDoc?.role;
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-background to-[hsl(var(--muted))]">
       <header className="sticky top-0 z-40 border-b bg-white/70 dark:bg-black/30 backdrop-blur supports-[backdrop-filter]:bg-white/50">
@@ -32,15 +33,55 @@ export default function MainLayout() {
             <span className="text-base font-extrabold tracking-tight">PM-AJAY IDPMS</span>
           </Link>
           <nav className="hidden md:flex items-center gap-1">
-            <NavItem to="/dashboard/central">Dashboard</NavItem>
-            <NavItem to="/projects">Projects</NavItem>
-            <NavItem to="/agencies/ia">Agencies</NavItem>
-            <NavItem to="/finance/dashboard">Finance</NavItem>
-            <NavItem to="/monitoring/real-time">Monitoring</NavItem>
-            <NavItem to="/reports">Reports</NavItem>
-            <NavItem to="/analytics">Analytics</NavItem>
-            <NavItem to="/builder">Builder</NavItem>
+            {!user && (
+              <>
+                <NavItem to="/">Home</NavItem>
+              </>
+            )}
+
+            {user && role === "central" && (
+              <>
+                <NavItem to="/dashboard/central">Dashboard</NavItem>
+                <NavItem to="/projects">Projects</NavItem>
+                <NavItem to="/agencies/ia">Agencies</NavItem>
+                <NavItem to="/finance/dashboard">Finance</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+                <NavItem to="/reports">Reports</NavItem>
+                <NavItem to="/analytics">Analytics</NavItem>
+                <NavItem to="/builder">Builder</NavItem>
+              </>
+            )}
+
+            {user && role === "state" && (
+              <>
+                <NavItem to="/dashboard/state">Dashboard</NavItem>
+                <NavItem to="/projects">Projects</NavItem>
+                <NavItem to="/agencies/ia">Agencies</NavItem>
+                <NavItem to="/finance/dashboard">Finance</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+                <NavItem to="/reports">Reports</NavItem>
+              </>
+            )}
+
+            {user && role === "ia" && (
+              <>
+                <NavItem to="/dashboard/ia">Dashboard</NavItem>
+                <NavItem to="/projects">My Projects</NavItem>
+                <NavItem to="/finance/uc">Utilization Certificates</NavItem>
+                <NavItem to="/finance/fund-flow">Fund Flow</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+              </>
+            )}
+
+            {user && role === "ea" && (
+              <>
+                <NavItem to="/dashboard/ea">Dashboard</NavItem>
+                <NavItem to="/projects">My Projects</NavItem>
+                <NavItem to="/monitoring/real-time">Monitoring</NavItem>
+              </>
+            )}
           </nav>
+
           <div className="flex items-center gap-2">
             {user ? (
               <>
